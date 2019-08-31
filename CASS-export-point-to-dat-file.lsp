@@ -1,13 +1,13 @@
 (defun C:zzExport2Dat ()
   (vl-load-com)
   (setq	filename
-	 (getfiled "±£´æÎª..."
+	 (getfiled "ä¿å­˜ä¸º..."
 		   (getvar "dwgprefix")
 		   "dat;csv"
 		   1
 	 )
   )
-;;;Ñ¡ÔñËùÓĞµØĞÎµãÍ¼¿é
+;;;é€‰æ‹©æ‰€æœ‰åœ°å½¢ç‚¹å›¾å—
   (SETQ	SS (ssget "x"
 		  (list
 		    '(0 . "INSERT")
@@ -15,7 +15,7 @@
 		  )
 	   )
   )
-;;;ÌáÈ¡¿é×ø±ê¼´µØĞÎµã×ø±ê
+;;;æå–å—åæ ‡å³åœ°å½¢ç‚¹åæ ‡
   (if (and (/= ss nil) (/= filename nil)) ;if1
     (progn				;progn1
       (setq fileId (open filename "w"))
@@ -25,7 +25,7 @@
 	(setq endata (assoc '10 (entget ssn)))
 	(if (/= endata nil)
 	  (progn
-	    ;;¶ÁÈ¡ÑÕÉ«Öµ
+	    ;;è¯»å–é¢œè‰²å€¼
 	    (setq pcolor (cdr (assoc '62 (entget ssn))))
 	    (if	(/= pcolor nil)
 	      (setq pcolor_str (strcat "co" (itoa pcolor)))
@@ -52,20 +52,20 @@
 	(setq i (1+ i))
       )
       (setq fileId (close fileId))
-      (princ (strcat "¹²µ¼³ö"
+      (princ (strcat "å…±å¯¼å‡º"
 		     (itoa i)
-		     "¸öCASSµØĞÎµã£¡ (C)ñû¶« 201709 QQ:61902475"
+		     "ä¸ªCASSåœ°å½¢ç‚¹ï¼ (C)è¦ƒä¸œ 201709 QQ:61902475"
 	     )
       )
     )					;end progn1
     (princ
-      "Í¼ÖĞÃ»ÓĞÕÒµ½CASSµØĞÎµã»òÎ´ÊäÈëÎÄ¼şÃû£¡(C)ñû¶« 201709 QQ:61902475"
+      "å›¾ä¸­æ²¡æœ‰æ‰¾åˆ°CASSåœ°å½¢ç‚¹æˆ–æœªè¾“å…¥æ–‡ä»¶åï¼(C)è¦ƒä¸œ 201709 QQ:61902475"
     )
   )					;end if1
   (princ)
 )
-;;;CASSµØĞÎÍ¼ÖĞµã¶ÔÏóÊôĞÔ
-;;;((-1 . <Í¼ÔªÃû: 7ffffb491b0>) (0 . "INSERT") (330 . <Í¼ÔªÃû: 7ffffb6d980>) (5 . "9A4AB") (100 . "AcDbEntity")
+;;;CASSåœ°å½¢å›¾ä¸­ç‚¹å¯¹è±¡å±æ€§
+;;;((-1 . <å›¾å…ƒå: 7ffffb491b0>) (0 . "INSERT") (330 . <å›¾å…ƒå: 7ffffb6d980>) (5 . "9A4AB") (100 . "AcDbEntity")
 ;;(67 . 0) (410 . "Model") (8 . "GCD") (6 . "Continuous") (100 . "AcDbBlockReference") (66 . 1) (2 . "GC200")
 ;;(10 269544.0 3.74404e+006 2713.01) (41 . 0.5) (42 . 0.5) (43 . 0.5) (50 . 0.0) (70 . 0) (71 . 0) (44 . 0.0)
 ;;(45 . 0.0) (210 0.0 0.0 1.0))
