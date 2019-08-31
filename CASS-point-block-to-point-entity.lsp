@@ -11,5 +11,4 @@
     (setq i (1+ i))
     (entdel ssn)
   )
-
 )
